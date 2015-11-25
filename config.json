@@ -1,0 +1,5 @@
+{ 
+  "baseurl"      : "http://foobar.com/",
+  "languageCode" : "en-us",
+  "title"        : "FooBar Site"
+}
