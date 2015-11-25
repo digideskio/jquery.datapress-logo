@@ -6,6 +6,8 @@ How did I get here?
     # Then I created this README...
     hugo new about.md
     # This creates content/about.md
+    hugo new post/first.md
+    # This creates content/post/about.md
 
 
 
