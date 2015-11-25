@@ -29,6 +29,11 @@ Furthermore:
 * Create `/less/bootswatch` based off any bootswatch repo.
 * Install `bootstrap#3.3.5` from source.
   * We're not using everything here. I mean we already had most of it in the theme.
+* Inline the bootstrap theme:
+  * `export THEME=themes/boostrap`
+  * `rm $THEME/README.md $THEME/theme.toml $THEME/LICENSE.md`
+  * `cp -r themes/bootstrap/* .`
+  * `git add data static/js static/css static/fonts archetypes images layouts`
 
 
 
