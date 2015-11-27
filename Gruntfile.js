@@ -4,32 +4,45 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-coffee');
+
+  var myPkg = grunt.file.readJSON('package.json');
+  grunt.file.setBase("static");
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: myPkg,
     clean: [
-      "static/gen/",
+      "gen/",
     ],
+    coffee: {
+      app: {
+        files: {
+          "gen/app.js" : "coffee/app.coffee"
+        },
+        options: { 
+          sourceMap: debug,
+        }
+      }
+    },
     less: {
       bootstrap: {
         files: {
-          "static/gen/bootstrap-custom.css" : "less/bootstrap-custom.less"
+          "gen/bootstrap-custom.css" : "less/bootstrap-custom.less"
         },
         options: {
-          compress: !debug,
           sourceMap: debug,
+          sourceMapFileInline: true,
+          outputSourceFiles: true,
         }
       },
       app: {
         files: {
-          "static/gen/app.css" : "less/app.less"
+          "gen/app.css" : "less/app.less"
         },
         options: {
-          compress: !debug,
           sourceMap: debug,
-          sourceMapFilename: "static/gen/app.css.map",
-          sourceMapURL: "/gen/app.css.map",
-          sourceMapRootpath: "/gen",
+          sourceMapFileInline: true,
+          outputSourceFiles: true,
         }
       }
     },
@@ -47,6 +60,7 @@ module.exports = function(grunt){
 
   grunt.registerTask('default', [
     "clean",
-    "less"
+    "less",
+    "coffee"
   ]);
 };
