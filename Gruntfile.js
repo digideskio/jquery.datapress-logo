@@ -1,5 +1,5 @@
 module.exports = function(grunt){
-  debug = true;
+  debug = false;
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -22,6 +22,14 @@ module.exports = function(grunt){
         options: { 
           sourceMap: debug,
         }
+      },
+      plugin: {
+        files: {
+          "gen/jquery.datapress-logo.js" : "coffee/plugin.coffee"
+        },
+        options: { 
+          sourceMap: debug,
+        }
       }
     },
     less: {
@@ -33,6 +41,7 @@ module.exports = function(grunt){
           sourceMap: debug,
           sourceMapFileInline: true,
           outputSourceFiles: true,
+          compress: !debug,
         }
       },
       app: {
@@ -54,6 +63,10 @@ module.exports = function(grunt){
       less2: {
         files: "less/app.less",
         tasks: "less:app"
+      },
+      coffee: {
+        files: "coffee/**/*",
+        tasks: "coffee"
       }
     }
   });

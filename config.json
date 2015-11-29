@@ -1,5 +1,5 @@
 { 
-  "baseurl"      : "http://foobar.com/",
-  "languageCode" : "en-us",
-  "title"        : "FooBar Site"
+  "baseurl"      : "https://datapressio.github.io/jquery.datapress-logo",
+  "languageCode" : "en-gb",
+  "title"        : "DataPress Logo jQuery Plugin"
 }

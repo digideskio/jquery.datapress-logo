@@ -1,13 +1,13 @@
 {
-  "name": "foobar",
+  "name": "jquery.datapress-logo",
   "version": "1.0.0",
-  "description": "Website template built in Hugo.",
+  "description": "Vector Logo | DataPress | jQuery Plugin",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",

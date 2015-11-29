@@ -1,13 +1,99 @@
-  <div class="container">
-    {{ if isset .Site.Params.showBlogHeader true }}
-    <header>
-      {{ partial "bloc/content/h1-title" . }}
-      {{ partial "bloc/content/lastupdate" . }}
-    </header>
-    {{ end }}
-    {{ $paginator := .Paginate (where .Data.Pages "Type" "post") }}
-    {{ range $paginator.Pages }}
-      {{ .Render "summary" }}
-    {{ end }}
-    {{ partial "bloc/content/pagination" . }}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Footer Icon</h4></div>
+        <div class="panel-body">
+          <div id="logo-footer1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Footer Icon</h4></div>
+        <div class="panel-body">
+          <div id="logo-footer2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Footer Icon</h4></div>
+        <div class="panel-body">
+          <div id="logo-footer3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Footer Icon</h4></div>
+        <div class="panel-body">
+          <div id="logo-footer4"></div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Spinner</h4></div>
+        <div class="panel-body">
+          <div id="logo-loading1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Spinner (Neutral)</h4></div>
+        <div class="panel-body">
+          <div id="logo-loading2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Spinner (Big)</h4></div>
+        <div class="panel-body">
+          <div id="logo-loading3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Spinner (Small)</h4></div>
+        <div class="panel-body">
+          <div id="logo-loading4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Intro Logo 1</h4></div>
+        <div class="panel-body">
+          <div id="logo-eyecatching1"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>Intro Logo 2</h4></div>
+        <div class="panel-body">
+          <div id="logo-eyecatching2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h4>TestBed</h4></div>
+        <div class="panel-body">
+          <div id="testbed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

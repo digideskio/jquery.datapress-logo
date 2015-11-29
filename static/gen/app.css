@@ -1,8 +1,9 @@
 body {
-  margin-top: 60px;
+  margin-top: 90px;
 }
-.margin-10 {
-  margin-bottom: 10px;
+.row {
+  margin-bottom: 50px;
+}
+.btn-group {
   margin-right: 10px;
 }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxlc3MvYXBwLmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBQTs7QUFHRjtFQUFXLG1CQUFBO0VBQW9CLGtCQUFBIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIG1hcmdpbi10b3A6IDYwcHg7XG4gIC8vIGJhY2tncm91bmQ6ICMwMGY7XG59XG4ubWFyZ2luLTEwe21hcmdpbi1ib3R0b206MTBweDsgbWFyZ2luLXJpZ2h0OjEwcHg7fVxuIl19 */
