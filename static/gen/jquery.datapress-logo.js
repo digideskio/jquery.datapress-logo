@@ -5,6 +5,8 @@
 
   TWOPI = 2 * Math.PI;
 
+  console.log("version 2");
+
   almost_cosine = function(base) {
     return function(t) {
       var cos, x;
@@ -54,7 +56,8 @@
       spinRadius: 20,
       spinCluster: 10,
       initial: "logo",
-      fg: "#ec4255"
+      fg: "#ec4255",
+      bg: "#ffffff"
     };
 
     DataPressLogo.prototype.reds = [['-24.91%', '9.78%', '17.30%'], ['-1.41%', '-14.66%', '22.28%'], ['5.08%', '18.89%', '17.39%'], ['22.18%', '-1.88%', '17.39%'], ['28.20%', '15.70%', '12.22%']];
@@ -77,7 +80,12 @@
       if (this.options.height === void 0) {
         height = width / this.options.aspectRatio;
       }
-      svg = $("<svg width=\"" + width + "\" height=\"" + height + "\">").appendTo(this.$el);
+      if (this.$el.is("img")) {
+        svg = $("<svg width=\"" + width + "\" height=\"" + height + "\">").insertBefore(this.$el);
+        this.$el.remove();
+      } else {
+        svg = $("<svg width=\"" + width + "\" height=\"" + height + "\">").appendTo(this.$el);
+      }
       this.logo = d3.selectAll(svg).append("g").attr("transform", "translate(" + (width / 2) + "," + (height / 2) + ")");
       dots = (function() {
         var j, len, ref, results;
@@ -97,8 +105,8 @@
       }
       this.logo.selectAll(".red").data(this.reds).enter().append("circle").classed("red", true).attr("fill", this.options.fg);
       this.logo.selectAll("rect").data(this.rect).enter().append("rect").attr("fill", this.options.fg);
-      this.logo.selectAll(".white").data(this.whites).enter().append("circle").classed("white", true).attr("fill", "#fff");
-      this.logo.selectAll("line").data(this.lines).enter().append("line").attr("stroke", "#fff");
+      this.logo.selectAll(".white").data(this.whites).enter().append("circle").classed("white", true).attr("fill", this.options.bg);
+      this.logo.selectAll("line").data(this.lines).enter().append("line").attr("stroke", this.options.bg);
       if (this.options.initial === "logo") {
         this.jumpToLogo();
       } else if (this.options.initial === "center") {

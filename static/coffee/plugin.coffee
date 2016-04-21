@@ -1,5 +1,7 @@
-
+# Note that to create an image for fallback, the image needs to be 125% canvas size of the trimmed cloud
+#
 TWOPI = 2*Math.PI
+console.log "version 2"
 
 almost_cosine = (base) -> (t) ->
     cos = (1 - Math.cos(t*Math.PI)) / 2 # 0 to 1
@@ -33,6 +35,7 @@ class DataPressLogo
         spinCluster: 10 # Higher for more clustering of dots
         initial: "logo"
         fg: "#ec4255"
+        bg: "#ffffff"
 
     reds: [
       [ '-24.91%' , '9.78%'   , '17.30%' ]
@@ -62,14 +65,17 @@ class DataPressLogo
     constructor: (el, options) ->
         @options = $.extend({}, @defaults, options)
         @$el = $(el)
-
         if @options.width is undefined
             width = @$el.width()
         if @options.height is undefined
             height = width / @options.aspectRatio
 
         # Create the canvas & convert to d3
-        svg = $("<svg width=\"#{width}\" height=\"#{height}\">").appendTo @$el
+        if @$el.is("img")
+            svg = $("<svg width=\"#{width}\" height=\"#{height}\">").insertBefore @$el
+            @$el.remove()
+        else
+            svg = $("<svg width=\"#{width}\" height=\"#{height}\">").appendTo @$el
 
         @logo = d3.selectAll svg
             .append("g")
@@ -96,11 +102,11 @@ class DataPressLogo
             .data(@whites).enter()
                 .append("circle")
                 .classed("white",true)
-                .attr("fill","#fff")
+                .attr("fill",@options.bg)
         @logo.selectAll("line")
             .data(@lines).enter()
                 .append("line")
-                .attr("stroke","#fff")
+                .attr("stroke",@options.bg)
         if @options.initial=="logo"
             @jumpToLogo()
         else if @options.initial=="center"
